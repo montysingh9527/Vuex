@@ -67,3 +67,13 @@ methods: {
     },
   },
 ```
+### mutations调用- 辅助函数：mapMutations
+```
+mapMutations和mapState很像,它把位于mutations中的方法提取了出来,我们可以将它导入
+
+import { mapMutations } from 'vuex'
+methods: {
+    // 此时组件方法就会拥有mutations中的addCount方法,方法写在methods中
+    ...mapMutations(['addCount'])
+}
+```

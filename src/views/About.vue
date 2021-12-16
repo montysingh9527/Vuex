@@ -1,10 +1,13 @@
 <template>
   <div class="about">
-    <button @click="test">+1（原始方式）</button>
+    <button @click="test">+10（原始方式）</button>
+    <!-- Vue中方法的默认第一个参数 事件参数对象$event, 100就是传递的载荷payload-->
+    <button @click="addCount(100)">+100（辅助函数mapMutations方式）</button>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   methods: {
     // 原始方式调用
@@ -12,6 +15,7 @@ export default {
       // 调用mutation方法,commit(mutation名称,payload载荷)
       this.$store.commit("addCount", 10);
     },
+    ...mapMutations(["addCount"]), // 此时组件方法就会拥有mutations中的addCount方法
   },
 };
 </script>
