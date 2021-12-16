@@ -1,11 +1,20 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- 原始形式应用 -->
      <div>原始形式获取state状态：{{$store.state.count}}</div>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name:'App',
+  
+}
+</script>
+
 
 <style>
 #app {

@@ -1,24 +1,11 @@
-# vuex
+# vuex介绍
 
-## Project setup
+## 安装：
+```npm i vuex --save
 ```
-npm install
+## Vuex基础-state
+### 原始形式：插值表达式
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+<div>原始形式获取state状态：{{$store.state.count}}</div>
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
