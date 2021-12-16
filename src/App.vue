@@ -8,20 +8,25 @@
       <!-- mapState计算属性 -->
       <div>mapState计算属性获取state状态：{{ count }}</div>
     </div>
+    <about />
     <router-view />
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
+import About from "./views/About";
 export default {
   name: "App",
+  components: {
+    About,
+  },
   computed: {
     // 把state中数据,定义在组件内的计算属性中
     // count() {
     //   return this.$store.state.count;
     // },
-    ...mapState(['count'])
+    ...mapState(["count"]),
   },
 };
 </script>
