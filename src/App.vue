@@ -2,7 +2,9 @@
   <div id="app">
     <div id="nav">
       <!-- 原始形式应用 -->
-     <div>原始形式获取state状态：{{$store.state.count}}</div>
+      <div>原始形式获取state状态：{{ $store.state.count }}</div>
+      <!-- 计算属性 -->
+      <div>计算属性获取state状态：{{ count }}</div>
     </div>
     <router-view />
   </div>
@@ -10,9 +12,14 @@
 
 <script>
 export default {
-  name:'App',
-  
-}
+  name: "App",
+  computed: {
+    // 把state中数据,定义在组件内的计算属性中
+    count() {
+      return this.$store.state.count;
+    },
+  },
+};
 </script>
 
 
