@@ -5,19 +5,23 @@
       <div>原始形式获取state状态：{{ $store.state.count }}</div>
       <!-- 计算属性 -->
       <div>计算属性获取state状态：{{ count }}</div>
+      <!-- mapState计算属性 -->
+      <div>mapState计算属性获取state状态：{{ count }}</div>
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: "App",
   computed: {
     // 把state中数据,定义在组件内的计算属性中
-    count() {
-      return this.$store.state.count;
-    },
+    // count() {
+    //   return this.$store.state.count;
+    // },
+    ...mapState(['count'])
   },
 };
 </script>
