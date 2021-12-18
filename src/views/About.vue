@@ -5,11 +5,14 @@
     <button @click="addCount(100)">+100（辅助函数mapMutations方式）</button>
     <br />
     <button @click="testAction">Action异步调用（原始方式）</button>
+    <button @click="getAsyncCount(555)">
+      Action异步调用（辅助函数getAsyncCount方式）
+    </button>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
   methods: {
     // 原始方式调用
@@ -23,6 +26,7 @@ export default {
       this.$store.dispatch("getAsyncCount", 222);
     },
     ...mapMutations(["addCount"]), // 此时组件方法就会拥有mutations中的addCount方法
+    ...mapActions(["getAsyncCount"]), 
   },
 };
 </script>

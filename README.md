@@ -108,3 +108,15 @@ testAction() {
       this.$store.dispatch("getAsyncCount", 222);
     },
 ```
+### actions调用- 辅助函数：mapActions
+```
+actions也有辅助函数,可以将action导入到组件中
+import { mapActions } from "vuex";
+methods:{
+    ...mapActions(["getAsyncCount"]), 
+}
+
+直接通过this方法就可以调用
+<button @click="getAsyncCount(555)">Action异步调用（辅助函数getAsyncCount式）</button>
+
+```
