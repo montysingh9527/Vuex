@@ -77,3 +77,34 @@ methods: {
     ...mapMutations(['addCount'])
 }
 ```
+## Vuex基础-actions
+```
+state是存放数据的,mutations是同步更新数据,actions则负责进行异步操作
+
+定义actions：
+actions: {
+    // 获取异步的数据context表示当前的store的实例,可以通过context.state获取状态,也可以通过context.commit来提交mutations,也可以context.dispatch调用其它的action
+    getAsyncCount(context) {
+      // 做异步的请求
+      setTimeout(function () {
+        // 提交333去修改state
+        context.commit('addCount', 333)
+      }, 2000)
+    }
+  }
+
+```
+### actions调用- 原始调用:$store
+```
+在组件中调用actions
+addAsyncCount(){
+    this.$store.dispatch('getAsyncCount')
+}
+
+传参调用:
+testAction() {
+      // commit是提交mutations, dispatch调用actions,
+      // dispatch(action的名称,传递的参数)
+      this.$store.dispatch("getAsyncCount", 222);
+    },
+```

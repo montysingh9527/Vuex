@@ -18,5 +18,16 @@ export default new Vuex.Store({
       state.count += paylad
     }
   },
-  actions: {}
+  // 异步动作。从后端获取一个数通过mutations更新到state的count中
+  actions: {
+    // action方法参数：context
+    // context：执行上下文对象,相当于组件中的this.$store  store的运行实例
+    getAsyncCount(context, params) {
+      // 做异步的请求
+      setTimeout(function () {
+        // 提交数据到mutations的addCount中
+        context.commit('addCount', params)
+      }, 2000)
+    }
+  }
 });
