@@ -7,7 +7,8 @@ export default new Vuex.Store({
   // 实例化Vuex的构造参数 state mutations actions
   state: {
     // 存储的状态
-    count: 0
+    count: 0,
+    list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
   // 修改state必须通过mutations
   mutations: {
@@ -29,5 +30,15 @@ export default new Vuex.Store({
         context.commit('addCount', params)
       }, 2000)
     }
+  },
+  // 放置所有的Vuex的计算属性 
+  getters: {
+    // state 指的是当前store中的state
+    // ES5写法
+    // filterList:function(state) {
+    //   return state.list.filter(item => item > 5)
+    // }
+    // 下面的这种代码形式更常见一些
+    filterList: state => state.list.filter(item => item > 5)
   }
 });

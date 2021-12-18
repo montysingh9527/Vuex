@@ -120,3 +120,25 @@ methods:{
 <button @click="getAsyncCount(555)">Action异步调用（辅助函数getAsyncCount式）</button>
 
 ```
+## Vuex基础-getters
+```
+除了state之外,有时我们还需要从state中派生出一些状态,这些状态是依赖state的,此时会用到getters
+
+例如，state中定义list为1-10的数组
+state:{
+    list:[1,2,3,4,5,6,7,8,9,10]
+}
+
+组件中，需要显示所有大于5的数据，正常的方式，是需要list在组件中进行再一步的处理，但是getters可以帮助我们实现它
+
+定义getters：
+getters: {
+    // getters 函数的第一个参数是state 必须要有返回值
+    filterList: state.list.filter(item => item > 5)
+  }
+
+```
+### getters调用- 原始方式:$store
+```
+<div>{{ $store.getters.filterList }}</div>
+```

@@ -8,6 +8,8 @@
     <button @click="getAsyncCount(555)">
       Action异步调用（辅助函数getAsyncCount方式）
     </button>
+    <br /><br />
+    <div>{{ $store.getters.filterList }}</div>
   </div>
 </template>
 
@@ -26,7 +28,7 @@ export default {
       this.$store.dispatch("getAsyncCount", 222);
     },
     ...mapMutations(["addCount"]), // 此时组件方法就会拥有mutations中的addCount方法
-    ...mapActions(["getAsyncCount"]), 
+    ...mapActions(["getAsyncCount"]),
   },
 };
 </script>
