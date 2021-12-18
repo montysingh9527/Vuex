@@ -142,3 +142,13 @@ getters: {
 ```
 <div>{{ $store.getters.filterList }}</div>
 ```
+### getters调用- 辅助函数:mapGetters（重点）
+```
+import { mapGetters } from "vuex";
+computed: {
+    // 将getters中的计算属性导入到组件的计算属性中
+    ...mapGetters(["filterList"]),
+  },
+
+<div>getters辅助函数形式mapGetters：{{ filterList }}</div>
+```

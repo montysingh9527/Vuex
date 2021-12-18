@@ -9,13 +9,18 @@
       Action异步调用（辅助函数getAsyncCount方式）
     </button>
     <br /><br />
-    <div>{{ $store.getters.filterList }}</div>
+    <div>getters原始形式：{{ $store.getters.filterList }}</div>
+    <div>getters辅助函数形式mapGetters：{{ filterList }}</div>
   </div>
 </template>
 
 <script>
-import { mapMutations, mapActions } from "vuex";
+import { mapMutations, mapActions, mapGetters } from "vuex";
 export default {
+  computed: {
+    // 将getters中的计算属性导入到组件的计算属性中
+    ...mapGetters(["filterList"]),
+  },
   methods: {
     // 原始方式调用
     test() {
