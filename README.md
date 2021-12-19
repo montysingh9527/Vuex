@@ -185,3 +185,20 @@ const store = new Vuex.Store({
   </div>
 </template>
 ```
+### 模块化-调用子模块属性- 辅助函数:mapGetters
+```
+请注意：这个getters是根级别的getters
+getters:{
+    // 创建快捷访问
+    token:state => state.user.token,
+    name:state => state.setting.name
+}
+
+通过mapGetters引用
+computed: {
+    ...mapGetters(["name", "token"]),
+  },
+
+<div>快捷访问-用户token：{{ token }}</div>
+<div>快捷访问-网站名称：{{ name }}</div>
+```

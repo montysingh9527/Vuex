@@ -39,7 +39,10 @@ export default new Vuex.Store({
     //   return state.list.filter(item => item > 5)
     // }
     // 下面的这种代码形式更常见一些
-    filterList: state => state.list.filter(item => item > 5)
+    filterList: state => state.list.filter(item => item > 5),
+    // 创建快捷访问
+    token:state => state.user.token,
+    name:state => state.setting.name
   },
   // 放置子模块的属性
   modules:{
