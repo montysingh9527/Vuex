@@ -11,11 +11,17 @@
     <br />
     <button @click="updateToken">更新子模块的token</button>
     <button @click="testToken">调用子模块的mutations</button>
+    <br />
+    <!-- <button @click="updateToken">
+      createNamespacedHelpers更新子模块的token
+    </button> -->
   </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+// import { createNamespacedHelpers } from "vuex";
+// const { mapMutations } = createNamespacedHelpers("user"); // 基于user模块下的mapMutations
 export default {
   name: "home",
   computed: {
@@ -33,6 +39,8 @@ export default {
     testToken() {
       this["user/updateToken"]();
     },
+    // 第三种方式 createNamespacedHelpers
+    // ...mapMutations(["updateToken"]),
   },
 };
 </script>

@@ -288,3 +288,17 @@ modules:{
     },
   },
 ```
+#### 调用方法3：命名空间辅助函数- createNamespacedHelpers
+```
+import { createNamespacedHelpers } from "vuex";
+const { mapMutations } = createNamespacedHelpers("user"); 
+
+ methods: {
+     // 第三种方式 createNamespacedHelpers
+    ...mapMutations(["updateToken"]),
+  },
+
+<button @click="updateToken">
+      createNamespacedHelpers更新子模块的token
+</button>
+```
