@@ -23,7 +23,9 @@ export default {
   methods: {
     updateToken() {
       //未使用namespaced命名空间，直接调用user下的updateToken
-      this.$store.commit("updateToken");
+      // this.$store.commit("updateToken");
+      // 使用namespaced命名空间，采用路径形式调用,原始形式调用
+      this.$store.commit("user/updateToken");
     },
   },
 };

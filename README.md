@@ -235,3 +235,31 @@ methods: {
 
 <button @click="updateToken">更新子模块的token</button>
 ```
+### Vuex基础-模块化中的命名空间：使用 namespaced
+#### 调用方法1：直接调用-带上模块的属性名路径
+```
+带命名空间的模块 action/mutations
+设置子模块 namespaced:true, 此时则无法通过全局的方式直接调用。
+而是使用带命名空间的模块的属性名路径
+modules:{
+    user:{
+      namespaced:true, // 给true表示加锁
+      state:{
+        token:'12345'
+      },
+      mutations:{
+        // 这里的state表示user的state 即12345
+        updateToken(state){
+          state.token = '66666'
+        }
+      },
+    },
+}
+
+ methods: {
+    updateToken() {
+      // 使用namespaced命名空间，采用路径形式调用,原始形式调用
+      this.$store.commit("user/updateToken");
+    },
+  },
+```

@@ -47,6 +47,7 @@ export default new Vuex.Store({
   // 放置子模块的属性
   modules:{
     user:{
+      namespaced:true, // 给true表示加锁
       state:{
         token:'12345'
       },
