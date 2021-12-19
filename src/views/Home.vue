@@ -10,11 +10,12 @@
     <div>快捷访问的方式-网站名称：{{ name }}</div>
     <br />
     <button @click="updateToken">更新子模块的token</button>
+    <button @click="testToken">调用子模块的mutations</button>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "home",
   computed: {
@@ -26,6 +27,11 @@ export default {
       // this.$store.commit("updateToken");
       // 使用namespaced命名空间，采用路径形式调用,原始形式调用
       this.$store.commit("user/updateToken");
+    },
+    // 第二种方式辅助函数
+    ...mapMutations(["user/updateToken"]),
+    testToken() {
+      this["user/updateToken"]();
     },
   },
 };

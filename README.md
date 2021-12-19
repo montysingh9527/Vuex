@@ -263,3 +263,28 @@ modules:{
     },
   },
 ```
+#### 调用方法2：辅助函数-带上模块的属性名路径
+```
+modules:{
+    user:{
+      namespaced:true, // 给true表示加锁
+      state:{
+        token:'12345'
+      },
+      mutations:{
+        // 这里的state表示user的state 即12345
+        updateToken(state){
+          state.token = '66666'
+        }
+      },
+    },
+}
+
+ methods: {
+     // 第二种方式辅助函数
+    ...mapMutations(["user/updateToken"]),
+    testToken() {
+      this["user/updateToken"]();
+    },
+  },
+```
