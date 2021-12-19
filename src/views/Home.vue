@@ -8,6 +8,8 @@
     <br />
     <div>快捷访问的方式-用户token：{{ token }}</div>
     <div>快捷访问的方式-网站名称：{{ name }}</div>
+    <br />
+    <button @click="updateToken">更新子模块的token</button>
   </div>
 </template>
 
@@ -18,6 +20,11 @@ export default {
   computed: {
     ...mapGetters(["name", "token"]),
   },
-  components: {},
+  methods: {
+    updateToken() {
+      //未使用namespaced命名空间，直接调用user下的updateToken
+      this.$store.commit("updateToken");
+    },
+  },
 };
 </script>

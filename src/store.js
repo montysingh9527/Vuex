@@ -50,6 +50,13 @@ export default new Vuex.Store({
       state:{
         token:'12345'
       },
+      mutations:{
+        // 这里的state表示user的state 即12345
+        updateToken(state){
+          state.token = '66666'
+        }
+      },
+      actions:{}
     },
     setting:{
       state:{

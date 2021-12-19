@@ -202,3 +202,36 @@ computed: {
 <div>快捷访问-用户token：{{ token }}</div>
 <div>快捷访问-网站名称：{{ name }}</div>
 ```
+## Vuex基础-模块化中的命名空间 namespaced
+```
+默认情况下,模块内部的action、mutation、getter是注册在 全局命名空间 的——这样使得多个模块能够对同一mutation或action做出响应
+也就是创建的user模块和setting模块,它的action、mutation、getter其实并没有区分,都可以直接通过全局的方式调用。
+如果我们想保证内部模块的高封闭性,我们可以采用 namespaced 来进行设置
+
+
+应用未使用namespaced：在user模块下定义一个mutations updateToken方法
+虽然在子模块下，但是依然可以通过全局的方式直接调用
+modules:{
+    user:{
+      state:{
+        token:'12345'
+      },
+      mutations:{
+        // 这里的state表示user的state 即12345
+        updateToken(state){
+          state.token = 66666
+        }
+      },
+      actions:{}
+    },
+}
+
+methods: {
+    updateToken() {
+      //未使用namespaced命名空间，直接调用user下的updateToken
+      this.$store.commit("updateToken");
+    },
+  },
+
+<button @click="updateToken">更新子模块的token</button>
+```
