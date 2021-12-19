@@ -152,3 +152,36 @@ computed: {
 
 <div>getters辅助函数形式mapGetters：{{ filterList }}</div>
 ```
+## Vuex基础-模块化
+```
+应用：定义两个模块 user 和 setting
+user中管理用户的状态 token
+setting中管理应用的名称 name
+const store = new Vuex.Store({
+    modules:{
+        user:{
+        state:{
+            token:'12345'
+        }
+        },
+        setting:{
+        state:{
+            name:'Vuex实例'
+        },
+        }
+    }
+})
+
+```
+### 模块化-调用子模块属性- 原始方式:$store
+```
+获取子模块的状态需要通过来获取： $store.state.子模块.属性
+<template>
+  <div class="home">
+    <!-- 用户的token和应用名称name -->
+    <!-- $store.state.子模块.属性 -->
+    <div>用户token：{{ $store.state.user.token }}</div>
+    <div>网站名称：{{ $store.state.setting.name }}</div>
+  </div>
+</template>
+```

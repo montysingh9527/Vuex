@@ -40,5 +40,18 @@ export default new Vuex.Store({
     // }
     // 下面的这种代码形式更常见一些
     filterList: state => state.list.filter(item => item > 5)
+  },
+  // 放置子模块的属性
+  modules:{
+    user:{
+      state:{
+        token:'12345'
+      },
+    },
+    setting:{
+      state:{
+        name:'Vuex子模块setting的值'
+      },
+    }
   }
 });
